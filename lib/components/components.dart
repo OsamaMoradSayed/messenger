@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 
-Widget buildItemStory() {
+Widget buildStoryItem() {
   return Container(
     width: 60.0,  /* ادي مساحة العمود كله مساحة الصورة علشان النص ميعدهاش */
     child: Column(
@@ -38,7 +38,7 @@ Widget buildItemStory() {
     ),
   );
 }
-Widget buildItemChats() {
+Widget buildChatsItem() {
   return Row(
     children: [
       Stack(

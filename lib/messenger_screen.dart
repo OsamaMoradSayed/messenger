@@ -52,90 +52,58 @@ class MessengerScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            /* Search */
-            Container(
-              decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(5.0),
-              color: Colors.grey[300],
-              ),
-              padding: EdgeInsetsDirectional.all(10.0),
-              child: Row(
-                children: [
-                  Icon(
-                    Icons.search,
-                  ),
-                  SizedBox(width: 10.0,),
-                  Text(
-                    'Search',
-
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: 25.0,),
-            /* Story */
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: [
-                  buildItemStory(),
-                  SizedBox(
-                    width: 15.0,
-                  ),
-                  buildItemStory(),
-                  SizedBox(
-                    width: 15.0,
-                  ),
-                  buildItemStory(),
-                  SizedBox(
-                    width: 15.0,
-                  ),
-                  buildItemStory(),
-                  SizedBox(
-                    width: 15.0,
-                  ),
-                  buildItemStory(),
-                  SizedBox(
-                    width: 15.0,
-                  ),
-                  buildItemStory(),
-                  SizedBox(
-                    width: 15.0,
-                  ),
-                  buildItemStory(),
-                ],
-              ),
-            ),
-            SizedBox(height: 35.0,),
-
-            /* Chats */
-            Expanded(
-              child: SingleChildScrollView(
-                child: Column(
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              /* Search */
+              Container(
+                decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(5.0),
+                color: Colors.grey[300],
+                ),
+                padding: EdgeInsetsDirectional.all(10.0),
+                child: Row(
                   children: [
-                    buildItemChats(),
-                    SizedBox(height: 20.0,),
-                    buildItemChats(),
-                    SizedBox(height: 20.0,),
-                    buildItemChats(),
-                    SizedBox(height: 20.0,),
-                    buildItemChats(),
-                    SizedBox(height: 20.0,),
-                    buildItemChats(),
-                    SizedBox(height: 20.0,),
-                    buildItemChats(),
-                    SizedBox(height: 20.0,),
-                    buildItemChats(),
-                    SizedBox(height: 20.0,),
+                    Icon(
+                      Icons.search,
+                    ),
+                    SizedBox(width: 10.0,),
+                    Text(
+                      'Search',
 
+                    ),
                   ],
                 ),
               ),
-            ),
-          ],
+              SizedBox(height: 25.0,),
+              /* Story */
+              Container(
+                height: 100.0,
+                child: ListView.separated(
+                  scrollDirection: Axis.horizontal,
+                    itemBuilder: (context , index) => buildStoryItem(),  // ال listview بتديني context عايد عليها و index علشان اعمل لوب علي ال item
+                    separatorBuilder: (context , index) => SizedBox(
+                      width: 15.0,
+                    ),
+                    itemCount: 15,
+                ),
+              ),
+              SizedBox(height: 20.0,),
+              ListView.separated(
+                physics: NeverScrollableScrollPhysics(),  // لازم اوقف الاسكرول علشان انا عامل اسكرول علي الشاشة كلها
+                shrinkWrap: true,  // لازم اعمل shrink علشان يبني ال listview كلها علشان هي مي هتسكرول شاشة كلها هتسكرول
+                itemBuilder:(context ,index) => buildChatsItem(),
+                separatorBuilder:(context , index) => SizedBox(
+                  height: 15.0,
+                  ),
+                itemCount: 30 ,
+              ),
+
+              /* Chats */
+
+            ],
+          ),
         ),
       ),
     );
