@@ -76,37 +76,63 @@ class MessengerScreen extends StatelessWidget {
               ),
             ),
             SizedBox(height: 25.0,),
-            /* Status */
+            /* Story */
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
                 children: [
-                  buildItemStatus(),
+                  buildItemStory(),
                   SizedBox(
                     width: 15.0,
                   ),
-                  buildItemStatus(),
+                  buildItemStory(),
                   SizedBox(
                     width: 15.0,
                   ),
-                  buildItemStatus(),
+                  buildItemStory(),
                   SizedBox(
                     width: 15.0,
                   ),
-                  buildItemStatus(),
+                  buildItemStory(),
                   SizedBox(
                     width: 15.0,
                   ),
-                  buildItemStatus(),
+                  buildItemStory(),
                   SizedBox(
                     width: 15.0,
                   ),
-                  buildItemStatus(),
+                  buildItemStory(),
                   SizedBox(
                     width: 15.0,
                   ),
-                  buildItemStatus(),
+                  buildItemStory(),
                 ],
+              ),
+            ),
+            SizedBox(height: 35.0,),
+
+            /* Chats */
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    buildItemChats(),
+                    SizedBox(height: 20.0,),
+                    buildItemChats(),
+                    SizedBox(height: 20.0,),
+                    buildItemChats(),
+                    SizedBox(height: 20.0,),
+                    buildItemChats(),
+                    SizedBox(height: 20.0,),
+                    buildItemChats(),
+                    SizedBox(height: 20.0,),
+                    buildItemChats(),
+                    SizedBox(height: 20.0,),
+                    buildItemChats(),
+                    SizedBox(height: 20.0,),
+
+                  ],
+                ),
               ),
             ),
           ],
